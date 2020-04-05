@@ -16,5 +16,14 @@ class Scron::Runner
     end
 
     schedules = Schedule.parse(File.read(schedule_file))
+    schedules.each do |schedule|
+      output = execute(schedule.command)
+    end
+  end
+
+  private def execute(command)
+    `#{command}`
+  rescue error : Exception
+    error.to_s
   end
 end

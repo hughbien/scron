@@ -8,6 +8,12 @@ describe Scron::Command do
       io.to_s.should contain("Usage: scron")
     end
 
+    it "prints help on additional args" do
+      io = String::Builder.new
+      Scron::Command.new(["arg1", "arg2"], io).run
+      io.to_s.should contain("Usage: scron")
+    end
+
     it "prints version on --version" do
       io = String::Builder.new
       Scron::Command.new(["-v"], io).run

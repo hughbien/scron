@@ -9,7 +9,7 @@ to run it every two hours with:
 
 ```
 $ crontab -e
-0 */2 * * * scron -r
+0 */2 * * * scron
 ```
 
 ## Usage
@@ -49,24 +49,18 @@ attempt to re-run it again in 2 hours.
 
 Use the `bin/build` script for tasks:
 
-* `bin/build run -- -r` to run locally
+* `bin/build run -- -h` to run locally
 * `bin/build spec` to run tests
 * `bin/build release` to build a release binary
 * `bin/build clean` to clean build artifacts
 
 ## TODO
 
-* add scron -e for editing
-* add running of all commands (regardless of history)
 * add logging to `.scronlog`
-* add history reading
-* add history parsing/touch
-* add history writing
+* add history reading/parsing
+* add history writing/touch
 * add schedule parsing
-* hook up history and schedule checking
-* hook up overdue checking in app
-* add comment syntax for `.scron` file
-* handle overlapping long running jobs
+* hook up history/schedule/overdue checking
 
 ## License
 

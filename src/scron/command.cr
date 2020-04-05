@@ -18,13 +18,13 @@ class Scron::Command
   end
 
   def run
-    OptionParser.parse(args) do |parser|
+    parser = OptionParser.parse(args) do |parser|
       parser.banner = "Usage: scron [options]"
       parser.on("-e", "--edit", "edit jobs") { edit_jobs }
-      parser.on("-r", "--run", "run jobs") { run_jobs }
       parser.on("-h", "--help", "show this help message") { print_help(parser) }
       parser.on("-v", "--version", "show version") { print_version }
     end
+    args.size > 0 ? print_help(parser) : run_jobs
   rescue error : OptionParser::InvalidOption | Error
     io.puts(error)
   end

@@ -56,7 +56,6 @@ Use the `bin/build` script for tasks:
 
 ## TODO
 
-* add logging to `.scronlog`
 * add history reading/parsing
 * add history writing/touch
 * add schedule parsing

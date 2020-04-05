@@ -1,16 +1,16 @@
 spec: test
 
 test:
-		crystal spec $(ARGS)
+	crystal spec $(ARGS)
 
 build:
-		crystal build src/cli.cr --release
-		mkdir -p target
-		mv cli target/scron
-		rm cli.dwarf
+	crystal build src/cli.cr --release
+	mkdir -p target
+	mv cli target/scron
+	rm cli.dwarf
 
 clean:
-		rm -rf cli cli.dwarf target
+	rm -rf cli cli.dwarf target
 
 run:
-		crystal run src/cli.cr -- $(ARGS)
+	crystal run src/cli.cr -- $(ARGS)

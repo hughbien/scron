@@ -56,8 +56,6 @@ Use the `bin/build` script for tasks:
 
 ## TODO
 
-* add history reading/parsing
-* add history writing/touch
 * add schedule parsing
 * hook up history/schedule/overdue checking
 

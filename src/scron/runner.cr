@@ -19,20 +19,27 @@ class Scron::Runner
   def run
     raise Error.new("File does not exist: #{schedule_file}") unless File.exists?(schedule_file)
 
-    logger = File.open(log_file, "a")
-    logger.puts("=> #{now_str} running")
+    log = File.open(log_file, "a")
+    log.puts("=> #{now_str} running")
 
     schedules = Schedule.parse(File.read(schedule_file))
+    history = History.new(read_history_file, now)
+
     schedules.each do |schedule|
-      logger.puts("=> #{now_str} #{schedule.command} (start)")
+      log.puts("=> #{now_str} #{schedule.command} (start)")
       output, status = execute(schedule.command)
-      logger.puts("=> #{now_str} #{schedule.command} (exit=#{status})")
-      logger.puts(output) unless output.empty?
+      log.puts("=> #{now_str} #{schedule.command} (exit=#{status})")
+      log.puts(output) unless output.empty?
+
+      if status == "0"
+        history.touch(schedule.command)
+        File.write(history_file, history.to_s)
+      end
     end
   ensure
-    if logger
-      logger.puts("=> #{now_str} finished")
-      logger.close
+    if log
+      log.puts("=> #{now_str} finished")
+      log.close
     end
   end
 
@@ -40,5 +47,9 @@ class Scron::Runner
     [`#{command}`, $?.exit_status.to_s]
   rescue error : Exception
     [error.to_s, "error"]
+  end
+
+  private def read_history_file
+    File.exists?(history_file) ? File.read(history_file) : ""
   end
 end

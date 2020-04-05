@@ -7,9 +7,7 @@ class Scron::Schedule
   def initialize(line : String)
     parts = line.strip.split(/\s+/, 2)
     raise Error.new("Unable to parse line: #{line}") if parts.size != 2
-
-    @interval = parts.first
-    @command = parts.last
+    @interval, @command = parts
   end
 
   def run

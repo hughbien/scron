@@ -47,12 +47,14 @@ attempt to re-run it again in 2 hours.
 
 ## Development
 
-Use the `bin/build` script for tasks:
+Use `make` for common tasks:
 
-* `bin/build run -- -h` to run locally
-* `bin/build spec` to run tests
-* `bin/build release` to build a release binary
-* `bin/build clean` to clean build artifacts
+* `make spec` to run all tests
+* `make spec ARGS=path/to/spec` to run a single test
+* `make build` to create a release binary in the target directory
+* `make clean` to remove build artifacts and release binary
+* `make run` to run locally
+* `make run ARGS=-h` to run with local arguments
 
 ## License
 

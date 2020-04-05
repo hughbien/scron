@@ -22,10 +22,12 @@ class Scron::Runner
     log = File.open(log_file, "a")
     log.puts("=> #{now_str} running")
 
-    schedules = Schedule.parse(File.read(schedule_file))
+    schedules = Schedule.parse(File.read(schedule_file), now)
     history = History.new(read_history_file, now)
+    overdue = schedules.select { |s| s.overdue?(history) }
+    return if overdue.empty?
 
-    schedules.each do |schedule|
+    overdue.each do |schedule|
       log.puts("=> #{now_str} #{schedule.command} (start)")
       output, status = execute(schedule.command)
       log.puts("=> #{now_str} #{schedule.command} (exit=#{status})")

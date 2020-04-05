@@ -54,11 +54,6 @@ Use the `bin/build` script for tasks:
 * `bin/build release` to build a release binary
 * `bin/build clean` to clean build artifacts
 
-## TODO
-
-* add schedule parsing
-* hook up history/schedule/overdue checking
-
 ## License
 
 Copyright 2020 Hugh Bien.

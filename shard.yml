@@ -1,0 +1,13 @@
+name: scron
+version: 0.1.0
+
+authors:
+  - Hugh Bien <hugh@hughbien.com>
+
+targets:
+  scron:
+    main: src/scron.cr
+
+crystal: 0.33.0
+
+license: BSD

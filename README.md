@@ -4,13 +4,14 @@ Scheduler for laptops which aren't on 24/7.
 
 ## Install
 
-Download the `scron` binary in the latest release and place it in your `$PATH`. Then configure cron
-to run it every two hours with:
+Download [scron v0.1.0](https://github.com/hughbien/scron/releases/download/v0.1.0/scron)
+and place it in your `$PATH`. Configure cron to run it every two hours with:
 
 ```
 $ crontab -e
 0 */2 * * * scron
 ```
+
 
 ## Usage
 

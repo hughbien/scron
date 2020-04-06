@@ -1,13 +1,18 @@
-spec: test
+INSTALL_BIN ?= /usr/local/bin
 
+spec: test
 test:
 	crystal spec $(ARGS)
 
-build:
+build: target/scron
+target/scron:
 	crystal build src/cli.cr --release
 	mkdir -p target
 	mv cli target/scron
 	rm cli.dwarf
+
+install: build
+	cp target/scron $(INSTALL_BIN)
 
 clean:
 	rm -rf cli cli.dwarf target

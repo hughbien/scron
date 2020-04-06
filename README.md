@@ -12,7 +12,6 @@ $ crontab -e
 0 */2 * * * scron
 ```
 
-
 ## Usage
 
 Configure jobs in `$HOME/.scron`. This example runs `cmd arg1 arg2` at least once every 30 days.
@@ -50,12 +49,15 @@ attempt to re-run it again in 2 hours.
 
 Use `make` for common tasks:
 
-* `make spec` to run all tests
-* `make spec ARGS=path/to/spec` to run a single test
-* `make build` to create a release binary in the target directory
-* `make clean` to remove build artifacts and release binary
-* `make run` to run locally
-* `make run ARGS=-h` to run with local arguments
+```
+make spec                    # to run all tests
+make spec ARGS=path/to/spec  # to run a single test
+make build                   # to create a release binary in the target directory
+make install                 # to copy release binary into system bin (uses $INSTALL_BIN)
+make clean                   # to remove build artifacts and target directory
+make run                     # to run locally
+make run ARGS=-h             # to run with local arguments
+```
 
 ## License
 

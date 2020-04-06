@@ -59,8 +59,7 @@ describe Scron::Schedule do
   # values depending on if today is the 14th or 16th. On the 14th, the last run should be 1 day ago.
   # On the 16th, the last run should be almost a month ago.
   describe "#parse_days" do
-    # For all examples, let's set today as Wednesday April 15, 2020.
-    now = Time.local(2020, 4, 15, 12, 0, 0)
+    now = stub_now
 
     describe "for day of the week" do
       it "returns interval for past day" do

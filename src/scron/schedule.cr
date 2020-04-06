@@ -88,5 +88,4 @@ class Scron::Schedule
   private def self.is_comment?(line : String)
     line =~ /^\s*$/
   end
-
 end

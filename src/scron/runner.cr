@@ -16,6 +16,9 @@ class Scron::Runner
     @now_str = @now.to_s(TIME_FORMAT)
   end
 
+  # Find overdue jobs, run them, record history, and log everything.
+  # If a command returns a non-zero status, it's considered a failure and will run again next
+  # time scron is executed.
   def run
     raise Error.new("File does not exist: #{schedule_file}") unless File.exists?(schedule_file)
 
@@ -25,7 +28,6 @@ class Scron::Runner
     schedules = Schedule.parse(File.read(schedule_file), now)
     history = History.new(read_history_file, now)
     overdue = schedules.select { |s| s.overdue?(history) }
-    return if overdue.empty?
 
     overdue.each do |schedule|
       log.puts("=> #{now_str} #{schedule.command} (start)")

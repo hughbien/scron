@@ -4,7 +4,7 @@ Scheduler for laptops which aren't on 24/7.
 
 ## Install
 
-Download [scron v0.1.0](https://github.com/hughbien/scron/releases/download/v0.1.0/scron)
+Download [scron v0.1.0](https://github.com/hughbien/scron/releases/tag/v0.1.0)
 and place it in your `$PATH`. Configure cron to run it every two hours with:
 
 ```
@@ -54,6 +54,7 @@ make spec                    # to run all tests
 make spec ARGS=path/to/spec  # to run a single test
 make build                   # to create a release binary in the bin directory
 make install                 # to copy release binary into system bin (uses $INSTALL_BIN)
+make release                 # to build releases for darwin/linux (requires docker)
 make clean                   # to remove build artifacts and bin directory
 make run                     # to run locally
 make run ARGS=-h             # to run with local arguments

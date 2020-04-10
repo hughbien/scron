@@ -6,8 +6,8 @@ authors:
 
 targets:
   scron:
-    main: src/scron.cr
+    main: src/cli.cr
 
-crystal: 0.33.0
+crystal: 0.34.0
 
 license: BSD

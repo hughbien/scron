@@ -4,15 +4,45 @@ Scheduler for laptops which aren't on 24/7.
 
 ## Install
 
-Download [scron v0.1.0](https://github.com/hughbien/scron/releases/tag/v0.1.0)
-and place it in your `$PATH`. Configure cron to run it every two hours with:
+**Mac**
+
+```
+brew install hughbien/tap/scron
+```
+
+This will install Crystal as a dependency. If you already have a non-homebrew Crystal installed, you
+can use the `--ignore-dependencies crystal` option.
+
+**Linux**
+
+Download the latest binary and place it in your `$PATH`:
+
+```
+wget -O /usr/local/bin/scron https://github.com/hughbien/scron/releases/download/v0.1.1/scron-linux64
+chmod +x /usr/local/bin/scron
+```
+
+MD5 checksum is: `4dfb5eeae2b89d5bf53487dff3ee5aaf`
+
+**From Source**
+
+Checkout this repo, run `make` and `make install` (requires [Crystal](https://crystal-lang.org/install/)):
+
+```
+git clone https://github.com/hughbien/scron.git
+cd scron
+make
+make install
+```
+
+## Usage
+
+Configure scron to run every two hours:
 
 ```
 $ crontab -e
 0 */2 * * * scron
 ```
-
-## Usage
 
 Configure jobs in `$HOME/.scron`. This example runs `cmd arg1 arg2` at least once every 30 days.
 
@@ -50,11 +80,11 @@ attempt to re-run it again in 2 hours.
 Use `make` for common tasks:
 
 ```
+make build                   # to create a release binary in the bin directory
+make build-static            # to build static binary for Linux
+make install                 # to copy release binary into system bin (uses $INSTALL_BIN)
 make spec                    # to run all tests
 make spec ARGS=path/to/spec  # to run a single test
-make build                   # to create a release binary in the bin directory
-make install                 # to copy release binary into system bin (uses $INSTALL_BIN)
-make release                 # to build releases for darwin/linux (requires docker)
 make clean                   # to remove build artifacts and bin directory
 make run                     # to run locally
 make run ARGS=-h             # to run with local arguments
@@ -62,6 +92,6 @@ make run ARGS=-h             # to run with local arguments
 
 ## License
 
-Copyright 2020 Hugh Bien.
+Copyright 2021 Hugh Bien.
 
 Released under BSD License, see LICENSE for details.

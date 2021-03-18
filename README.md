@@ -22,7 +22,7 @@ wget -O /usr/local/bin/scron https://github.com/hughbien/scron/releases/download
 chmod +x /usr/local/bin/scron
 ```
 
-MD5 checksum is: `4dfb5eeae2b89d5bf53487dff3ee5aaf`
+MD5 checksum is: `8e0c7865f81261c871d6ba43c780af0a`
 
 **From Source**
 

@@ -18,11 +18,11 @@ can use the `--ignore-dependencies crystal` option.
 Download the latest binary and place it in your `$PATH`:
 
 ```
-wget -O /usr/local/bin/scron https://github.com/hughbien/scron/releases/download/v0.1.1/scron-linux64
+wget -O /usr/local/bin/scron https://github.com/hughbien/scron/releases/download/v0.1.2/scron-linux-amd64
 chmod +x /usr/local/bin/scron
 ```
 
-MD5 checksum is: `8e0c7865f81261c871d6ba43c780af0a`
+MD5 checksum is: `68f821fb86132ad02fc5ba116af696eb`
 
 **From Source**
 

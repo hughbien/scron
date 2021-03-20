@@ -14,7 +14,7 @@ install: build
 	cp bin/scron $(INSTALL_BIN)
 
 release: build-static
-	$(eval MD5 := $(shell md5sum scron-linux-amd64 | cut -d" " -f1))
+	$(eval MD5 := $(shell md5sum bin/scron-linux-amd64 | cut -d" " -f1))
 	@echo v$(VERSION) $(MD5)
 	sed -i "" -E "s/v[0-9]+\.[0-9]+\.[0-9]+/v$(VERSION)/g" README.md
 	sed -i "" -E "s/[0-9a-f]{32}/$(MD5)/g" README.md

@@ -22,7 +22,7 @@ release: build-static
 push:
 	git tag v$(VERSION)
 	git push --tags
-	gh release create -R hughbien/scron -t v$(VERSION) v$(VERSION) ./scron-linux-amd64
+	gh release create -R hughbien/scron -t v$(VERSION) v$(VERSION) ./bin/scron-linux-amd64
 
 spec: test
 test:
